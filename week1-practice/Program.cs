@@ -37,7 +37,7 @@ namespace week1_practice
             var f = false;
 
             // Take var num and multiply it by itself.
-            var num = 1.7m;
+            decimal num = 1.49m;
             Console.WriteLine(num * num);
             // Make var num an integer.
             int intnum = Convert.ToInt32(num);
