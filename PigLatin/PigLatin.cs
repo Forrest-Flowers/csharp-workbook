@@ -6,15 +6,26 @@ namespace PigLatin
     {
         public static void Main()
         {
-            // your code goes here
+            String word = "";
+        
+
+            Console.WriteLine("Translate a word to Pig Latin!");
+            word = Console.ReadLine();
+            TranslateWord();
 
             // leave this command at the end so your program does not close automatically
             Console.ReadLine();
         }
         
         public static string TranslateWord(string word)
-        {
-            // your code goes here
+        {  bool StartsWithVowel;
+           bool StartsWithY;
+           bool HasAY;
+           bool HasAVowel;
+
+        //    starts with y -->
+            
+            
             return word;
         }
     }
