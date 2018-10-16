@@ -34,7 +34,7 @@ namespace TicTacToe
             int column = int.Parse(Console.ReadLine());
         }
 
-        public static void PlaceMark(int row, int column)
+        public static bool PlaceMark(int row, int column)
         {
         // your code goes here
         }
