@@ -19,6 +19,9 @@ namespace FizzBuzz
                 bool buzz = i % 5 == 0;
 
                 //If both fizz and buzz, write "FizzBuzz"
+                //If just fizz, write "Fizz"
+                //If just buzz, write "Buzz"
+                //Else, write the number.
                 if (fizz && buzz)
                 {
                     Console.WriteLine("FizzBuzz");
