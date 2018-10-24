@@ -6,18 +6,26 @@ namespace RockPaperScissors
     {
         public static void Main()
         {
-            Console.WriteLine("Rock, Paper, Scissors!");
-            string hand1 = Console.ReadLine().ToLower();
-            Console.WriteLine("The Computer is thinking...");
-            string hand2 = ""
-            Console.WriteLine(CompareHands(hand1, hand2));
+            string hand1 = playerInput();
+            string hand2 = computerInput();
 
-            // leave this command at the end so your program does not close automatically
+            
+
+            CompareHands(hand1, hand2);
+
+
+
+
+            //Keep this here to keep code from closing out.
             Console.ReadLine();
         }
 
-        public static string checkInput(string hand1)
-        {  
+        //Get input from user and check if it's valid.
+        public static string playerInput()
+        {
+            Console.WriteLine("Rock, Paper, Scissors!");
+            string hand1 = Console.ReadLine().ToLower();
+
             if (hand1 != "rock" && hand1 != "paper" && hand1 != "scissors")
             {
                 throw new Exception("Incorrect Input.");
@@ -25,52 +33,58 @@ namespace RockPaperScissors
             return hand1;
         }
 
-        public static void computerInput(string hand2){
-            Random rps = new Random();
 
-            rps(0,3);
-        }
-
-        //returns 1 if hand1 wins
-        //returns 2 if hand2 wins
-        //returns 0 if tie.
-        public static string CompareHands(string hand1, string hand2)
+        //Takes a random number and turns it into a game choice.
+        public static string computerInput()
         {
-            if (hand1 == hand2)
-            {
-                
-            }
-            else if (hand1 == "rock" && hand2 == "scissors" || hand1 == "paper" && hand2 == "rock" || hand1 == "scissors" && hand2 == "paper")
-            {
+            Random rps = new Random();
+            int num = rps.Next(0, 3);
+            string hand2;
 
-            }
-            else if (hand2 == "rock" && hand1 == "scissors" || hand2 == "paper" && hand1 == "rock" || hand2 == "scissors" && hand1 == "paper")
-            {
+            Console.WriteLine(num);
 
+            if (num == 0)
+            {
+                hand2 = "rock";
+                Console.WriteLine("The computer chose rock!");
+            }
+            else if (num == 1)
+            {
+                hand2 = "paper";
+                Console.WriteLine("The Computer chose paper!");
+            }
+            else if (num == 2)
+            {
+                hand2 = "scissors";
+                Console.WriteLine("The computer chose scissors!");
             }
             else
             {
-
+                throw new Exception("Error in computer generation.");
             }
+            return hand2;
         }
 
-        //returns true if all tests pass
-        //returns false if 1 or more fails
-        public static bool tests(string hand1, string hand2)
+
+        public static int CompareHands(string hand1, string hand2)
         {
-            // return
-            // CompareHands("Rock","Paper") == 2 &&
-            // CompareHands("Rock","Scissors") == 1 &&
-            // CompareHands("Rock","Rock") == 0 &&
-            // CompareHands("Paper","Scissors") == 2 &&
-            // CompareHands("Paper","Rock") == 1 &&
-            // CompareHands("Paper","Paper") == 0 &&
-            // CompareHands("Scissors","Rock") == 2 &&
-            // CompareHands("Scissors","Paper") == 1 &&
-            // CompareHands("Scissors","Scissors") == 0;
 
-
-
+            if (hand1 == hand2)
+            {
+                return 0;
+            }
+            else if (hand1 == "rock" && hand2 == "scissors" || hand1 == "paper" && hand2 == "rock" || hand1 == "scissors" && hand2 == "paper")
+            {
+                return 1;
+            }
+            else if (hand2 == "rock" && hand1 == "scissors" || hand2 == "paper" && hand1 == "rock" || hand2 == "scissors" && hand1 == "paper")
+            {
+                return 2;
+            }
+            else
+            {
+                throw new Exception("Comparison Error.");
+            }
         }
     }
 }
