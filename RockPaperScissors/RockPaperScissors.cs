@@ -6,14 +6,32 @@ namespace RockPaperScissors
     {
         public static void Main()
         {
+            if (tests())
+            {
+                Console.WriteLine("Tests Passed!");
+            }
+            else
+            {
+                Console.WriteLine("Tests Failed!");
+            }
+            Console.WriteLine("-----------------");
+
             string hand1 = playerInput();
             string hand2 = computerInput();
+            int compare = CompareHands(hand1, hand2);
 
-            
-
-            CompareHands(hand1, hand2);
-
-
+            if (compare == 0)
+            {
+                Console.WriteLine("It's a tie!");
+            }
+            else if (compare == 1)
+            {
+                Console.WriteLine("You Win, Congrats!");
+            }
+            else if (compare == 2)
+            {
+                Console.WriteLine("Computer Wins! Sorry bud.");
+            }
 
 
             //Keep this here to keep code from closing out.
@@ -23,6 +41,7 @@ namespace RockPaperScissors
         //Get input from user and check if it's valid.
         public static string playerInput()
         {
+
             Console.WriteLine("Rock, Paper, Scissors!");
             string hand1 = Console.ReadLine().ToLower();
 
@@ -30,18 +49,20 @@ namespace RockPaperScissors
             {
                 throw new Exception("Incorrect Input.");
             }
-            return hand1;
+            else
+            {
+                return hand1;
+            }
+
         }
 
 
-        //Takes a random number and turns it into a game choice.
+        //Takes a random number and turns it into the computer's hand.
         public static string computerInput()
         {
             Random rps = new Random();
             int num = rps.Next(0, 3);
             string hand2;
-
-            Console.WriteLine(num);
 
             if (num == 0)
             {
@@ -68,7 +89,6 @@ namespace RockPaperScissors
 
         public static int CompareHands(string hand1, string hand2)
         {
-
             if (hand1 == hand2)
             {
                 return 0;
@@ -85,6 +105,22 @@ namespace RockPaperScissors
             {
                 throw new Exception("Comparison Error.");
             }
+        }
+
+        public static bool tests()
+        {
+            return
+            CompareHands("rock", "rock") == 0 &&
+            CompareHands("rock", "scissors") == 1 &&
+            CompareHands("rock", "paper") == 2 &&
+
+            CompareHands("paper", "paper") == 0 &&
+            CompareHands("paper", "rock") == 1 &&
+            CompareHands("paper", "scissors") == 2 &&
+
+            CompareHands("scissors", "scissors") == 0 &&
+            CompareHands("scissors", "paper") == 1 &&
+            CompareHands("scissors", "rock") == 2;
         }
     }
 }
