@@ -9,13 +9,12 @@ namespace guessTheNumber
             Random rnd = new Random();
             int num = rnd.Next(1, 11);
             int chances = 4;
-            int guess = playerGuess();
-
             Console.WriteLine("--- The secret number is {0} ---", num);
             Console.WriteLine("GUESS THE NUMBER:");
 
-            while (chances > 0)
+            while (chances >= 0)
             {
+                int guess = playerGuess();
                 if (guess == num)
                 {
                     Console.WriteLine("Congrats, You Win!");
@@ -31,10 +30,7 @@ namespace guessTheNumber
                         Console.WriteLine("You've run out of guesses, You lost!");
                         return;
                     }
-                    else
-                    {
-                        playerGuess();
-                    }
+
                 }
 
             }

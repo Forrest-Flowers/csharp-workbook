@@ -13,7 +13,7 @@ namespace maxArray
 
             list.Add(input);
 
-            foreach(int item in list)
+            foreach (int item in list)
             {
                 Console.WriteLine();
             }
