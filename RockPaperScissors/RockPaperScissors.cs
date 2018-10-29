@@ -16,9 +16,28 @@ namespace RockPaperScissors
             }
             Console.WriteLine("-----------------");
 
-            string hand1 = playerInput();
+            string hand1 = null;
+
+
+            while (hand1 == null)
+            {
+                try
+                {
+                    playerInput();
+                }
+                catch
+                {
+                    Console.WriteLine("Enter Rock Paper or Scissor. Come on, you know better than that.");
+                }
+                finally
+                {
+                    hand1 = playerInput();
+                }
+            }
+            
             string hand2 = computerInput();
             int compare = CompareHands(hand1, hand2);
+
 
             if (compare == 0)
             {
