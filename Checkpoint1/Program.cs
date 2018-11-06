@@ -11,7 +11,8 @@ namespace Checkpoint1
 
             Console.WriteLine("Enter a number you want the factorial of:");
             int num = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("{0} != {1}", num, factorial());
+            int fact = factorial();
+            Console.WriteLine("{0} != {1}", num, fact);
         }
 
         public static int divideByThree()
