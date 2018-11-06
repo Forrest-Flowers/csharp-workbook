@@ -15,8 +15,7 @@ namespace divideByThree
                     divisibleByThree++;
                 }
             }
-            
-            Console.WriteLine("There are {0} numbers between 1 and 100 that are divisible by 3 with no remainder.", divisibleByThree);
+            Console.WriteLine("There are {0} numbers between 1 and 100 that are evenly divisible by 3", divisibleByThree);
         }
     }
 }
