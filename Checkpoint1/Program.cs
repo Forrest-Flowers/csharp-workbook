@@ -10,11 +10,55 @@ namespace Checkpoint1
             Console.WriteLine("----------------------------------------------------------------------");
 
             Console.WriteLine("Enter a number you want the factorial of:");
-            int num = Convert.ToInt32(Console.ReadLine());
-            int fact = factorial();
-            Console.WriteLine("{0} != {1}", num, fact);
-        }
+            Console.WriteLine(factorial());
+            Console.WriteLine("------------------------------------------------------------------------");
 
+            int secretNum = numGen();
+            int chances = 4;
+
+            Console.WriteLine("--- The secret number is {0} ---", secretNum);
+            Console.WriteLine("GUESS THE NUMBER:");
+
+            int guess = playerGuess();
+            while (chances >= 0)
+            {
+
+                if (guess != secretNum)
+                {
+                    chances--;
+                    Console.WriteLine("Wrong, you have {0} chance(s) left.", chances);
+                    playerGuess();
+                }
+                else if (guess == secretNum)
+                {
+                    Console.WriteLine("Congrats, You Win!");
+                    break;
+                }
+
+
+                if (chances == 0)
+                {
+                    Console.WriteLine("You've run out of guesses, You lost!");
+                    break;
+                }
+
+            }
+            Console.WriteLine("----------------------------------------------------------------------------");
+
+            Console.WriteLine("Please enter a number. Enter 'OK' to add all previously entered numbers.");
+            string userInput = AddInput();
+            int sum = 0;
+            if (userInput != "Ok" || userInput != "ok" || userInput != "OK" || userInput != "oK")
+            {
+                sum = Convert.ToInt32(userInput) + sum;
+                AddInput();
+            }
+            else
+            {
+                Console.WriteLine(sum);
+            }
+        }
+        //Divide By Three project (Number 1 on list):
         public static int divideByThree()
         {
             int divisibleByThree = 0;
@@ -28,17 +72,48 @@ namespace Checkpoint1
             }
             return divisibleByThree;
         }
-
-        public static int factorial(int num)
+        //Factorials project (Number 3 on list):
+        public static string factorial()
         {
+            int num = Convert.ToInt32(Console.ReadLine());
             int fact = num;
 
-           //int i, num and fact. Start i at 1 less than input and go down to 1 then multiply those numbers together to find fact.
-           for (int i = num - 1; i >= 1; i--)
-           {
-               fact = fact * i;
-           }
-            return fact;
+            //int i, num and fact. Start i at 1 less than input and go down to 1 then multiply those numbers together to find fact.
+            for (int i = num - 1; i >= 1; i--)
+            {
+                fact = fact * i;
+            }
+
+            string equation = $"{num} != {fact}";
+
+            return equation;
         }
+
+        public static int numGen()
+        {
+            Random rnd = new Random();
+            int num = rnd.Next(1, 11);
+            return num;
+        }
+
+
+        public static int playerGuess()
+        {
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            return num1;
+        }
+        //Add Numbers Project (Number 2 on List.):
+        public static string AddInput()
+        {
+            string userInput = Console.ReadLine();
+            return userInput;
+        }
+
+
     }
+
+
+
 }
+
+
