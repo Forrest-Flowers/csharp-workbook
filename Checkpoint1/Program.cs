@@ -6,58 +6,56 @@ namespace Checkpoint1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("There are {0} numbers between 1 and 100 that are evenly divisible by 3", divideByThree());
-            Console.WriteLine("----------------------------------------------------------------------");
+            // Console.WriteLine("There are {0} numbers between 1 and 100 that are evenly divisible by 3", divideByThree());
+            // Console.WriteLine("----------------------------------------------------------------------");
 
-            Console.WriteLine("Enter a number you want the factorial of:");
-            Console.WriteLine(factorial());
-            Console.WriteLine("------------------------------------------------------------------------");
+            // Console.WriteLine("Enter a number you want the factorial of:");
+            // Console.WriteLine(factorial());
+            // Console.WriteLine("------------------------------------------------------------------------");
 
-            int secretNum = numGen();
-            int chances = 4;
+            // int secretNum = numGen();
+            // int chances = 4;
 
-            Console.WriteLine("--- The secret number is {0} ---", secretNum);
-            Console.WriteLine("GUESS THE NUMBER:");
+            // Console.WriteLine("--- The secret number is {0} ---", secretNum);
+            // Console.WriteLine("GUESS THE NUMBER:");
 
-            int guess = playerGuess();
-            while (chances >= 0)
-            {
+            // int guess = playerGuess();
+            // while (chances > 0)
+            // {
+            //     if (guess == secretNum)
+            //     {
+            //         Console.WriteLine("Congrats, You Win!");
+            //         break;
+            //     }
 
-                if (guess != secretNum)
-                {
-                    chances--;
-                    Console.WriteLine("Wrong, you have {0} chance(s) left.", chances);
-                    playerGuess();
-                }
-                else if (guess == secretNum)
-                {
-                    Console.WriteLine("Congrats, You Win!");
-                    break;
-                }
+            //     else if (guess != secretNum)
+            //     {
+            //         chances--;
+            //         Console.WriteLine("Wrong, you have {0} chance(s) left.", chances);
+            //         playerGuess();
+            //     }
+            //     if (chances == 0)
+            //     {
+            //         Console.WriteLine("You've run out of tries. Try again.");
+            //         break;
+            //     }
 
+            // }
+            // Console.WriteLine("----------------------------------------------------------------------------");
 
-                if (chances == 0)
-                {
-                    Console.WriteLine("You've run out of guesses, You lost!");
-                    break;
-                }
-
-            }
-            Console.WriteLine("----------------------------------------------------------------------------");
 
             Console.WriteLine("Please enter a number. Enter 'OK' to add all previously entered numbers.");
             string userInput = AddInput();
             int sum = 0;
-            if (userInput != "Ok" || userInput != "ok" || userInput != "OK" || userInput != "oK")
+            while (userInput != "ok")
             {
                 sum = Convert.ToInt32(userInput) + sum;
                 AddInput();
+                Console.WriteLine("---{0}---", userInput);
             }
-            else
-            {
-                Console.WriteLine(sum);
-            }
+            Console.WriteLine(sum);
         }
+
         //Divide By Three project (Number 1 on list):
         public static int divideByThree()
         {
@@ -105,7 +103,7 @@ namespace Checkpoint1
         //Add Numbers Project (Number 2 on List.):
         public static string AddInput()
         {
-            string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine().ToLower();
             return userInput;
         }
 
