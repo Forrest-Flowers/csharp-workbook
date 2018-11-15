@@ -41,21 +41,5 @@ namespace forLoopPractice
             return max;
 
         }
-
-        static int doWhileLoop(int[] myArray){
-            int max;
-
-            int i = 0;
-
-            do{
-                if(i == 0){
-                    max = myArray[i];
-                }else if(max < myArray[i]){
-                    max = myArray[i];
-                }
-
-                i++;
-            } while(i < myArray.Length);
-        }
     }
 }

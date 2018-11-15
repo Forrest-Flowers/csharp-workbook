@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InterfacePractice
 {
@@ -42,7 +43,7 @@ namespace InterfacePractice
         {
             this.dailyRate = daily;
         }
-        public doublele GetDailyRate()
+        public double GetDailyRate()
         {
             return dailyRate;
         }
