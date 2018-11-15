@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Checkpoint1
 {
@@ -44,16 +45,30 @@ namespace Checkpoint1
             // Console.WriteLine("----------------------------------------------------------------------------");
 
 
-            Console.WriteLine("Please enter a number. Enter 'OK' to add all previously entered numbers.");
-            string userInput = AddInput();
-            int sum = 0;
-            while (userInput != "ok")
-            {
-                sum = Convert.ToInt32(userInput) + sum;
-                AddInput();
-                Console.WriteLine("---{0}---", userInput);
-            }
-            Console.WriteLine(sum);
+            // Console.WriteLine("Please enter a number. Enter 'OK' to add all previously entered numbers.");
+            // string userInput = AddInput();
+            // int sum = 0;
+            // while (userInput != "ok")
+            // {
+            //     sum = Convert.ToInt32(userInput) + sum;
+                
+            //     userInput;
+
+            // }
+            // Console.WriteLine(sum);
+            // Console.WriteLine("----------------------------------------------------------------------------------------");
+
+            
+            Console.WriteLine("Enter in 5 numbers separated with a comma.");
+            string input = 
+
+            
+    
+
+
+
+            findMaxInArray();
+
         }
 
         //Divide By Three project (Number 1 on list):
@@ -105,6 +120,19 @@ namespace Checkpoint1
         {
             string userInput = Console.ReadLine().ToLower();
             return userInput;
+        }
+
+        // Max Array Project (Number 5 on List.):
+
+        public static string intialInput()
+        {   
+           string input = Console.ReadLine();
+            return input;
+        }
+
+        public static int findMaxInArray()
+        {
+
         }
 
 
