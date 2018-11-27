@@ -20,7 +20,12 @@ namespace enumStruct
                     {
                         return "Fire is weak against water.";
                     }
+
+                    //etc, etc...
                 }
+
+                //etc, etc...
+
 
                 return null;
             }
