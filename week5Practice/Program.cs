@@ -25,8 +25,8 @@ namespace week5Practice
             Console.WriteLine("p1's full name is {0}", p1.fullName());
             Console.WriteLine("p2's full name is {0}", p2.fullName());
 
-            Console.WriteLine(Person.genericHello());
-            Console.WriteLine(Person.hello());
+            // Console.WriteLine(Person.genericHello());
+            // Console.WriteLine(Person.hello());
 
             Console.WriteLine("I have created {0} Person instances.", Person.counter);
         }
