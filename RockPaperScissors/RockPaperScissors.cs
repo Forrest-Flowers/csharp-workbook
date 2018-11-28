@@ -29,10 +29,6 @@ namespace RockPaperScissors
                 {
                     Console.WriteLine("Enter Rock Paper or Scissor. Come on, you know better than that.");
                 }
-                finally
-                {
-                    hand1 = playerInput();
-                }
             }
             
             string hand2 = computerInput();
