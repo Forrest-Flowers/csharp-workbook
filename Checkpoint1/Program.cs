@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Checkpoint1
 {
@@ -7,67 +8,85 @@ namespace Checkpoint1
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("There are {0} numbers between 1 and 100 that are evenly divisible by 3", divideByThree());
-            // Console.WriteLine("----------------------------------------------------------------------");
+            Console.WriteLine("There are {0} numbers between 1 and 100 that are evenly divisible by 3", divideByThree());
+            Console.WriteLine("----------------------------------------------------------------------");
 
-            // Console.WriteLine("Enter a number you want the factorial of:");
-            // Console.WriteLine(factorial());
-            // Console.WriteLine("------------------------------------------------------------------------");
+            Console.WriteLine("Enter a number you want the factorial of:");
+            Console.WriteLine(factorial());
+            Console.WriteLine("------------------------------------------------------------------------");
 
-            // int secretNum = numGen();
-            // int chances = 4;
+            int secretNum = numGen();
+            int chances = 4;
 
-            // Console.WriteLine("--- The secret number is {0} ---", secretNum);
-            // Console.WriteLine("GUESS THE NUMBER:");
+            Console.WriteLine("--- The secret number is {0} ---", secretNum);
+            Console.WriteLine("GUESS THE NUMBER:");
 
-            // int guess = playerGuess();
-            // while (chances > 0)
+            int guess = playerGuess();
+            while (chances > 0)
+            {
+                if (guess == secretNum)
+                {
+                    Console.WriteLine("Congrats, You Win!");
+                    break;
+                }
+
+                else if (guess != secretNum)
+                {
+                    chances--;
+                    Console.WriteLine("Wrong, you have {0} chance(s) left.", chances);
+                    playerGuess();
+                }
+                if (chances == 0)
+                {
+                    Console.WriteLine("You've run out of tries. Try again.");
+                    break;
+                }
+
+            }
+            Console.WriteLine("----------------------------------------------------------------------------");
+
+
+            Console.WriteLine("Please enter a number. Enter 'OK' to add all previously entered numbers.");
+            string userInput = AddInput();
+            int sum = 0;
+            while (userInput != "ok")
+            {
+                sum = Convert.ToInt32(userInput) + sum;
+
+                AddInput();
+            }
+            Console.WriteLine(sum);
+            Console.WriteLine("----------------------------------------------------------------------------------------");
+
+
+            // Console.WriteLine("Enter in 5 numbers separated with a comma.");
+
+            // string input = intialInput();
+
+            // List<string> newList = new List<string>();
+
+            // string[] container = input.Split(",");
+
+            // newList.addAll(Arrays.asList(container));
+
+            // foreach(string word in newList)
             // {
-            //     if (guess == secretNum)
-            //     {
-            //         Console.WriteLine("Congrats, You Win!");
-            //         break;
-            //     }
-
-            //     else if (guess != secretNum)
-            //     {
-            //         chances--;
-            //         Console.WriteLine("Wrong, you have {0} chance(s) left.", chances);
-            //         playerGuess();
-            //     }
-            //     if (chances == 0)
-            //     {
-            //         Console.WriteLine("You've run out of tries. Try again.");
-            //         break;
-            //     }
-
+            //     Console.WriteLine(word);
             // }
-            // Console.WriteLine("----------------------------------------------------------------------------");
-
-
-            // Console.WriteLine("Please enter a number. Enter 'OK' to add all previously entered numbers.");
-            // string userInput = AddInput();
-            // int sum = 0;
-            // while (userInput != "ok")
-            // {
-            //     sum = Convert.ToInt32(userInput) + sum;
-                
-            //     userInput;
-
-            // }
-            // Console.WriteLine(sum);
-            // Console.WriteLine("----------------------------------------------------------------------------------------");
-
-            
-            Console.WriteLine("Enter in 5 numbers separated with a comma.");
-            string input = 
-
-            
-    
 
 
 
-            findMaxInArray();
+
+
+
+
+
+
+
+
+
+
+            // findMaxInArray();
 
         }
 
@@ -115,25 +134,27 @@ namespace Checkpoint1
             int num1 = Convert.ToInt32(Console.ReadLine());
             return num1;
         }
-        //Add Numbers Project (Number 2 on List.):
+
+        // Add Numbers Project (Number 2 on List.):
         public static string AddInput()
         {
-            string userInput = Console.ReadLine().ToLower();
+            string userInput = Console.ReadLine();
+            userInput.ToLower();
             return userInput;
         }
 
         // Max Array Project (Number 5 on List.):
 
-        public static string intialInput()
-        {   
-           string input = Console.ReadLine();
-            return input;
-        }
+        // public static string intialInput()
+        // {
+        //     string input = Console.ReadLine().ToLower();
+        //     return input;
+        // }
 
-        public static int findMaxInArray()
-        {
+        //  public static List <string> addToList()
+        //  {
 
-        }
+        //  }
 
 
     }
