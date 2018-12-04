@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Checkers
 {
@@ -8,7 +9,16 @@ namespace Checkers
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Console.WriteLine("LET'S PLAY SOME CHECKERS!");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+            Thread.Sleep(1500);
+            
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Game game = new Game();
+
+            Console.ReadLine();
         }
     }
 
@@ -37,8 +47,11 @@ namespace Checkers
         
         public void CreateBoard()
         {
-            // Your code here
-            return;
+            this.Grid = new string[][] 
+            {
+                new string[] {" ", " ", " ", " ", " ", " ", " ", " ",},
+                new string[] {" ", " ", " ", " ", " ", " ", " ", " ",}
+            };
         }
         
         public void GenerateCheckers()
@@ -49,7 +62,10 @@ namespace Checkers
         
         public void PlaceCheckers()
         {
-            // Your code here
+            foreach (var checker in Checkers)
+            {
+                this.Grid[checker.Position[0]][checker.Position[1]]
+            }
             return;
         }
         
