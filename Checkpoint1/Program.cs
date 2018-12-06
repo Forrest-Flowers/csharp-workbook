@@ -7,33 +7,31 @@ namespace Checkpoint1
     {
         static void Main(string[] args)
         {
+            //Lists how many divisible by 3 numbers there are between 1 and 100.
             Console.WriteLine("There are {0} numbers between 1 and 100 that are evenly divisible by 3", divideByThree());
             Console.WriteLine("----------------------------------------------------------------------");
 
+            //Enter a number, get the factorial of that number.
             Console.WriteLine("Enter a number you want the factorial of:");
             Console.WriteLine(factorial());
             Console.WriteLine("------------------------------------------------------------------------");
 
             int secretNum = numGen();
             int chances = 4;
-
-
             Console.WriteLine("GUESS THE NUMBER:");
 
-            
 
-            
-
+            //While you have chances left, you can keep on guessing the number.
             while (chances > 0)
             {
-                Console.WriteLine("THE SECRET NUMBER IS " +secretNum);
-               int guess = playerGuess();
+                Console.WriteLine("THE SECRET NUMBER IS " + secretNum);
+                int guess = playerGuess();
                 if (guess == secretNum)
                 {
                     Console.WriteLine("Congrats, You Win!");
                     break;
                 }
-               else if (guess != secretNum)
+                else if (guess != secretNum)
                 {
                     chances--;
                     Console.WriteLine("Wrong, you have {0} chance(s) left.", chances);
@@ -45,9 +43,22 @@ namespace Checkpoint1
                     break;
                 }
             }
-
-
             Console.WriteLine("----------------------------------------------------------------------------");
+
+            Console.WriteLine("Enter as many numbers as you like; enter 'ok' to add them all up! ");
+
+            string initInput = addGameInput();
+            while (initInput != "ok")
+            {
+                
+                int sum = 0;
+                int addTheNum = Convert.ToInt32(initInput);
+
+                addTheNum += sum;
+
+
+            }
+
         }
         //Divide By Three project (Number 1 on list):
         public static int divideByThree()
@@ -84,17 +95,24 @@ namespace Checkpoint1
         //Guess the number project.
         public static int numGen()
         {
+            //Gets a random number
             Random rnd = new Random();
             int num = rnd.Next(1, 11);
             return num;
         }
 
-
         public static int playerGuess()
         {
+            //Takes guess from player.
             int num1 = Convert.ToInt32(Console.ReadLine());
             return num1;
         }
 
+        public static string addGameInput()
+        {
+            string numToAdd = Console.ReadLine().ToLower();
+
+            return numToAdd;
+        }
     }
 }
