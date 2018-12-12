@@ -45,19 +45,13 @@ namespace Checkpoint1
             }
             Console.WriteLine("----------------------------------------------------------------------------");
 
-            Console.WriteLine("Enter as many numbers as you like; enter 'ok' to add them all up! ");
+            Console.WriteLine("Enter a number; enter 'ok' to add all previous numbers up! ");
+            Console.WriteLine("The numbers you entered = " +addNumbers());
 
-            string initInput = addGameInput();
-            while (initInput != "ok")
-            {
-                
-                int sum = 0;
-                int addTheNum = Convert.ToInt32(initInput);
-
-                addTheNum += sum;
-
-
-            }
+            Console.WriteLine("------------------------------------------------------------------------------");
+            
+            Console.WriteLine("Enter a series of numbers separated by a comma:");
+            Console.WriteLine("The largest number you entered is: " + LargestNum());
 
         }
         //Divide By Three project (Number 1 on list):
@@ -108,11 +102,44 @@ namespace Checkpoint1
             return num1;
         }
 
-        public static string addGameInput()
+        public static int addNumbers()
         {
-            string numToAdd = Console.ReadLine().ToLower();
+            string userInput = Console.ReadLine();
+            List<int> inputList = new List<int>();
+            int sum = 0;
 
-            return numToAdd;
+            if(userInput.ToLower() != "ok")
+            {
+                while (userInput.ToLower() != "ok")
+                {
+                    inputList.Add(Convert.ToInt32(userInput));
+                    sum += Convert.ToInt32(userInput);
+
+                    Console.WriteLine("Enter a number; enter 'ok' to add all previous numbers up! ");
+                    userInput = Console.ReadLine();
+                }
+            }
+
+            return sum;
+        }
+
+        public static int LargestNum()
+        {
+            string input = Console.ReadLine();
+
+            string[] numArray = input.Split(",");
+
+            int largestNum = Convert.ToInt32(numArray[0]);
+
+            for(int i = 0; i < numArray.Length; i++)
+            {
+                if(largestNum < Convert.ToInt32(numArray[i]))
+                {
+                    largestNum = Convert.ToInt32(numArray[i]);
+                }
+            }
+
+            return largestNum;
         }
     }
 }
