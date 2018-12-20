@@ -21,9 +21,9 @@ namespace Database
             Console.WriteLine("--By: Forrest Flowers--");
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~");
             Thread.Sleep(1500);
+
             while (userInput != "exit")
             {
-
                 Console.WriteLine("Please enter 'add', 'remove', 'list','update' 'list done' or 'exit'");
                 userInput = Console.ReadLine().ToLower();
                 if (userInput == "add")
@@ -114,6 +114,7 @@ namespace Database
         }
     }
 
+    // Cookie Cutter Todo Class
     public class Todo
     {
         public int Id { get; set; }
@@ -184,10 +185,9 @@ namespace Database
                 if (item.Status == true)
                 {
                     doneList.Add(item);
-                    return doneList;
                 }
             }
-            return null;
+            return doneList;
         }
 
         public void remove(Todo removeItem)
