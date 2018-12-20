@@ -26,7 +26,7 @@ namespace TicTacToe
                 DrawBoard();
                 Console.WriteLine("{0} LOSES.!", playerTurn);
             }
-            else if (CheckForTie() == true)
+            else if (CheckForTie())
             {
                 DrawBoard();
                 Console.WriteLine("You tied!");
