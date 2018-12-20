@@ -1,0 +1,21 @@
+create table toys (deptid int, id int, name varchar(100), quantity int, price float);
+insert into toys values (1, 'Teddy Bear', 200, 12.00);
+insert into toys values (102, 2, 'Toy Car', 450, 5.00);
+insert into toys values (102, 3, 'Barbie', 300, 7.00);
+insert into toys values (102, 4, 'Lego', 475, 100.00);
+insert into toys values (102, 5, 'Trading Cards', 1000, 5.00);
+insert into toys values (101, 6, 'Toy Blocks', 600, 14.00);
+insert into toys values (102, 7, 'Toy Kitchen', 375, 50.00);
+insert into toys values (102, 8, 'Action Figure', 780, 8.00);
+insert into toys values (102, 9, 'Jacks', 643, 4.00);
+insert into toys values (102, 10, 'Ball', 567, 6.00);
+SELECT * FROM toys;
+
+
+create table departments (id int, name varchar(100));
+insert into departments values (1, 'Babies);
+insert into departments values (2, 'Big Kids');
+
+update toys set deptid 101 where id = 1;
+
+select * from toys join departments on toys.deptid = departments.id;
